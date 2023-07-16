@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="mb"
+            type="com.example.databindingdemo.model.MobileModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="@{mb.mobileName}"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+        <!--            android:text="hello"-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/tvName"
+            android:background="@android:color/holo_red_light"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="@{mb.mobileCode}"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+        <!--            android:text="000-1"-->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:onClick="@{()->mb.changeMobileName()}"
+            android:text="修改"/>
+
+    </RelativeLayout>
+</layout>

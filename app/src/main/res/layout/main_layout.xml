@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="desc"
+            type="String" />
+
+        <variable
+            name="isSuccess"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="statusModel"
+            type="com.example.databindingdemo.model.StatusModel" />
+
+        <variable
+            name="act"
+            type="com.example.databindingdemo.MainActivity" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{desc}" />
+
+<!--        <include-->
+<!--        android:id="@+id/layout_child"-->
+<!--        layout="@{isSuccess?@layout/success_layout:@layout/failed_layout}" />-->
+        <include
+            android:id="@+id/layout_child"
+            layout="@layout/success_layout"
+            bind:statusModel="@{statusModel}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@{cb.checked?@color/purple_200:@color/teal_200}"
+            android:text='@{cb.checked?"选中":"未选中"}'/>
+
+        <CheckBox
+            android:id="@+id/cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择控件"/>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->act.nextPage()}"
+            android:text="NextPage"/>
+
+    </LinearLayout>
+</layout>
