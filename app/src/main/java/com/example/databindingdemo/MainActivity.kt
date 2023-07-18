@@ -36,4 +36,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, NextActivity::class.java))
     }
 
+    fun toBindAblePage(){
+        startActivity(Intent(this, BindAbleActivity::class.java))
+    }
+
 }

@@ -62,5 +62,12 @@
             android:onClick="@{()->act.nextPage()}"
             android:text="NextPage"/>
 
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->act.toBindAblePage()}"
+            android:text="属性绑定"/>
+
     </LinearLayout>
 </layout>
