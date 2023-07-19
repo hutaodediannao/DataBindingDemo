@@ -3,13 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="imgUrl"
             type="androidx.databinding.ObservableField&lt;String>" />
+
         <variable
             name="act"
             type="com.example.databindingdemo.BindAbleActivity" />
 
+        <variable
+            name="desc"
+            type="androidx.databinding.ObservableField&lt;String>" />
     </data>
 
     <LinearLayout
@@ -24,12 +29,19 @@
             android:src="@mipmap/ic_launcher"
             app:loadImage="@{imgUrl}" />
 
+        <com.example.databindingdemo.util.DescTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="27sp"
+            app:tt="@{desc}" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="@{()->act.updateImageView()}"
-            android:text="修改显示网络图片"/>
+            android:text="修改显示网络图片" />
 
     </LinearLayout>
 </layout>

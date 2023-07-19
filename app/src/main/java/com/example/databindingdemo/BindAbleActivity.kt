@@ -14,6 +14,7 @@ class BindAbleActivity : AppCompatActivity() {
 
     private lateinit var bind: ActivityBindAbleBinding
     private val imgIcon: ObservableField<String> by lazy { ObservableField("https://tse4-mm.cn.bing.net/th/id/OIP-C.8PtaBcaLZP4pe6rYlyCSGgHaE0?pid=ImgDet&rs=1") }
+    private var desc = ObservableField<String>("this is old data!")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class BindAbleActivity : AppCompatActivity() {
         )
         bind.imgUrl = imgIcon
         bind.act = this
+        bind.desc = desc
     }
 
     override fun onDestroy() {
@@ -33,5 +35,7 @@ class BindAbleActivity : AppCompatActivity() {
     fun updateImageView() {
         Log.i(TAG, "updateImageView: 开始加载图片: ${imgIcon.get()}")
         imgIcon.set("https://img2.baidu.com/it/u=3438011236,1721602599&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=500")
+
+        desc.set("ok, update is ok new data")
     }
 }
