@@ -16,6 +16,9 @@
         android:theme="@style/Theme.DataBindingDemo"
         tools:targetApi="31">
         <activity
+            android:name=".RememberActivity"
+            android:exported="false" />
+        <activity
             android:name=".BindAbleActivity"
             android:exported="false" />
         <activity

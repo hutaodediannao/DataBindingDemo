@@ -29,7 +29,7 @@ object ImageLoader {
 
 @BindingMethods(
     value = [
-        BindingMethod(type = TextView::class, attribute = "app:tt", method = "setContent")
+        BindingMethod(type = DescTextView::class, attribute = "tt", method = "setData")
     ]
 )
 class DescTextView(context: Context, attributeSet: AttributeSet) :androidx.appcompat.widget.AppCompatTextView(context, attributeSet) {
@@ -41,10 +41,9 @@ class DescTextView(context: Context, attributeSet: AttributeSet) :androidx.appco
         }
 
     var content:ObservableField<String> = ObservableField("")
-        set(value) {
-            field = value
-            text = value.get()
-            setTextColor(Color.BLUE)
-            Log.i(TAG, "setContent 开始执行...: ")
-        }
+
+    fun setData(content:ObservableField<String>){
+        this.content = content
+        text = this.content.get()
+    }
 }

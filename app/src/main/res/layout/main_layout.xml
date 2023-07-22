@@ -69,5 +69,12 @@
             android:onClick="@{()->act.toBindAblePage()}"
             android:text="属性绑定"/>
 
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{(v)->act.toBindRememberPage(v)}"
+            android:text="双向绑定"/>
+
     </LinearLayout>
 </layout>
