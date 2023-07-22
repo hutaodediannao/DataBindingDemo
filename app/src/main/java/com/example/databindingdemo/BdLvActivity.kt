@@ -32,22 +32,15 @@ class PersonViewModel(var person: Person) : ViewModel() {
         person.age = person.age.plus(1)
         dataLv.value = person
     }
-
-    fun minAge() {
-        person.age = person.age.minus(1)
-        dataLv.value = person
-    }
-
     fun changeName(){
         person.name = "这是修改好的Name:${System.nanoTime()}"
         dataLv.value = person
     }
 }
 
-object Config {
-    @BindingConversion
-    @JvmStatic
-    fun setText(intValue: Int) = intValue.toString()
-
-}
+//object Config {
+//    @BindingConversion
+//    @JvmStatic
+//    fun setText(intValue: Int) = intValue.toString()
+//}
 
