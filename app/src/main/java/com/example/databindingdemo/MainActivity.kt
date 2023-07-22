@@ -45,4 +45,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, RememberActivity::class.java))
     }
 
+    fun toBdLvPage(view:View) {
+        startActivity(Intent(this, BdLvActivity::class.java))
+    }
+
 }

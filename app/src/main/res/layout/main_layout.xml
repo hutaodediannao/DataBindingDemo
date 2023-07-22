@@ -33,48 +33,55 @@
             android:layout_height="wrap_content"
             android:text="@{desc}" />
 
-<!--        <include-->
-<!--        android:id="@+id/layout_child"-->
-<!--        layout="@{isSuccess?@layout/success_layout:@layout/failed_layout}" />-->
+        <!--        <include-->
+        <!--        android:id="@+id/layout_child"-->
+        <!--        layout="@{isSuccess?@layout/success_layout:@layout/failed_layout}" />-->
         <include
             android:id="@+id/layout_child"
             layout="@layout/success_layout"
-            bind:statusModel="@{statusModel}"/>
+            bind:statusModel="@{statusModel}" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textSize="20sp"
+            android:text='@{cb.checked?"选中":"未选中"}'
             android:textColor="@{cb.checked?@color/purple_200:@color/teal_200}"
-            android:text='@{cb.checked?"选中":"未选中"}'/>
+            android:textSize="20sp" />
 
         <CheckBox
             android:id="@+id/cb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="选择控件"/>
+            android:text="选择控件" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="@{()->act.nextPage()}"
-            android:text="NextPage"/>
+            android:text="NextPage" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="@{()->act.toBindAblePage()}"
-            android:text="属性绑定"/>
+            android:text="属性绑定" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:onClick="@{(v)->act.toBindRememberPage(v)}"
-            android:text="双向绑定"/>
+            android:text="双向绑定" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{(v)->act.toBdLvPage(v)}"
+            android:text="跳转到BindViewModel页面" />
 
     </LinearLayout>
 </layout>

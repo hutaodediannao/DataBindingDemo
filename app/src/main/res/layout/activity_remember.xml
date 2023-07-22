@@ -27,7 +27,7 @@
         <CheckBox
             android:layout_width="100dp"
             android:layout_height="200dp"
-            android:checked="@={userVm.setChecked}"
+            android:checked="@={stated}"
             android:text="选择状态" />
 
         <Button

@@ -17,8 +17,6 @@ class UserViewModel(private val user: User, private val lifecycleOwner: Lifecycl
         this.dataLv.postValue(this.user)
     }
 
-    fun getChecked()=this.user.isSelected
-
     fun setChecked(isSelected: Boolean){
         this.user.isSelected = isSelected
         dataLv.postValue(user)
