@@ -25,8 +25,8 @@
         tools:context=".RememberActivity">
 
         <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
             android:checked="@={userVm.setChecked}"
             android:text="选择状态" />
 
