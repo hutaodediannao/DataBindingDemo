@@ -2,6 +2,7 @@ package com.example.databindingdemo
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableBoolean
@@ -38,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
     fun toBindAblePage(){
         startActivity(Intent(this, BindAbleActivity::class.java))
+    }
+
+    fun toBindRememberPage(view: View){
+        startActivity(Intent(this, RememberActivity::class.java))
     }
 
 }
