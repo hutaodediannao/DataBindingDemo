@@ -2,8 +2,11 @@ package com.example.databindingdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.BaseObservable
 import androidx.databinding.BindingConversion
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.Observable
+import androidx.databinding.PropertyChangeRegistry
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +23,8 @@ class BdLvActivity : AppCompatActivity() {
         val personViewModel = PersonViewModel(person)
         bind.pv = personViewModel
         bind.lifecycleOwner = this
+
+
     }
 }
 
@@ -32,15 +37,32 @@ class PersonViewModel(var person: Person) : ViewModel() {
         person.age = person.age.plus(1)
         dataLv.value = person
     }
-    fun changeName(){
+
+    fun changeName() {
         person.name = "这是修改好的Name:${System.nanoTime()}"
         dataLv.value = person
     }
 }
 
-//object Config {
-//    @BindingConversion
-//    @JvmStatic
-//    fun setText(intValue: Int) = intValue.toString()
-//}
+open class MyObservableViewModel : ViewModel(), Observable {
+
+    private val callbacks: PropertyChangeRegistry = PropertyChangeRegistry()
+    override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+        callbacks.add(callback)
+    }
+
+    override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+        callbacks.remove(callback)
+    }
+
+    fun notifyChange() {
+        callbacks.notifyCallbacks(this, 0, null)
+    }
+
+    fun notifyPropertyChanged(fieldId: Int) {
+        callbacks.notifyCallbacks(this, fieldId, null)
+    }
+}
+
+
 
